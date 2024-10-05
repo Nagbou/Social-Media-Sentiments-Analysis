@@ -1,0 +1,7 @@
+.chartContainer {
+    display: flex;
+    justify-content: space-between;
+    /* Space between the chart and legend */
+    align-items: center;
+    /* Center the items vertically */
+}

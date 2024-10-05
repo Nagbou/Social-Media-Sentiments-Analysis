@@ -1,0 +1,59 @@
+.container {
+    color: white;
+    background: linear-gradient(135deg,
+            #220447,
+            /* tolopea */
+            #152985,
+            /* deep koamaru */
+            #340567 40%,
+            /* christalle */
+            #501fa9 70%,
+            /* daisy bush */
+            #5d6fc6 100%
+            /* indigo */
+        );
+    padding-bottom: 5%;
+    text-align: center;
+}
+
+.header {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 3%;
+    padding-top: 5%;
+    text-align: center;
+}
+
+.intro {
+    width: 80%;
+    text-align: center;
+    margin-left: 10%;
+    color: rgb(223, 223, 223);
+    margin-bottom: 5%;
+}
+
+.barsContainer {
+    background-color: #220447;
+    padding: 1%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+.button {
+    font-size: 2rem;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #5d6fc6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #005bb5;
+    /* Change background color on hover */
+}

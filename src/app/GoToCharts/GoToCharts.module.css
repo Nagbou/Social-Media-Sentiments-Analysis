@@ -1,0 +1,59 @@
+/* Container with a lighter card style */
+.container {
+
+    text-align: center;
+    padding: 20px;
+    width: 80%;
+    /* Card width */
+    margin: 40px auto;
+    margin-top: 5%;
+    background-color: #3b1464;
+    /* Lighter background for the card */
+    border-radius: 12px;
+    /* Rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    /* Softer shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    /* Set position relative for absolute positioning of the button */
+}
+
+.container:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    /* Deeper shadow on hover */
+}
+
+/* Header inside the card */
+.header {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.button {
+    background-color: #140029;
+    color: white;
+    padding: 10px;
+    /* Add padding for better spacing */
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 3rem;
+    /* Size of the icon */
+    font-weight: bold;
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    /* Ensure the icon is centered */
+    justify-content: center;
+    /* Center the icon horizontally */
+    align-items: center;
+    /* Center the icon vertically */
+}
+
+.button:hover {
+    color: #1f013f;
+    background-color: white;
+}

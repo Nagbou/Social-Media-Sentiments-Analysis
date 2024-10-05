@@ -1,42 +1,17 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* CSS HEX */
+/*
+--daisy-bush: #501fa9;
+--perfume: #d2b2f4;
+--tolopea: #220447;
+--malibu: #52cff6;
+--cornflower-blue: #736be7;
+--medium-purple: #8f47d9;
+--indigo: #5d6fc6;
+--christalle: #340567;
+--deep-koamaru: #152985;
+--hippie-blue: #669eb4;
+*/
+.row {
+    width: 100.9%;
+    padding-left: 5%;
 }
