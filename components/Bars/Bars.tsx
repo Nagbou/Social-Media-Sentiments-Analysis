@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Papa from 'papaparse';
 import styles from "./Bars.module.css";
-import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Label } from 'recharts';
+import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { TooltipProps } from 'recharts';
 
 interface BarsProps {
@@ -16,8 +16,15 @@ interface ChartData {
     [key: string]: string | number;
 }
 
-const CustomTooltipCursor = (props: any) => {
-    const { x, y, width, height } = props;
+// Define prop types for CustomTooltipCursor
+interface CustomTooltipCursorProps {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+}
+
+const CustomTooltipCursor = ({ x, y, width, height }: CustomTooltipCursorProps) => {
     return (
         <Rectangle
             fill="#004f99"
@@ -34,7 +41,7 @@ const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>)
         return (
             <div
                 style={{
-                    backgroundColor: 'rgba(15, 23, 42, 0.9)', 
+                    backgroundColor: 'rgba(15, 23, 42, 0.9)',
                     padding: '16px',
                     borderRadius: '8px',
                     display: 'flex',
@@ -45,7 +52,7 @@ const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>)
             >
                 <p style={{ fontSize: '16px', fontWeight: '500' }}>{label}</p>
                 <p style={{ fontSize: '14px', color: '#fff' }}>
-                    Total likes :
+                    Total likes:
                     <span style={{ marginLeft: '8px' }}>{payload[0].value}</span>
                 </p>
                 <p style={{ fontSize: '14px', color: '#fff' }}>
@@ -57,27 +64,26 @@ const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>)
     }
     return null;
 };
-function Bars({ xaxis, bar1, bar2, csvpath }: BarsProps) {
+
+const Bars: React.FC<BarsProps> = ({ xaxis, bar1, bar2, csvpath }) => {
     const [data, setData] = useState<ChartData[]>([]);
 
     useEffect(() => {
         const loadCSV = async () => {
-            fetch(csvpath)  // Use the csvpath prop
-                .then(response => response.text())
-                .then(csvText => {
-                    // Use PapaParse to convert CSV to JSON
-                    Papa.parse<ChartData>(csvText, {
-                        header: true,  // Assume the first row contains headers
-                        dynamicTyping: true,  // Automatically type numbers
-                        complete: (result) => {
-                            setData(result.data);  // Update state with parsed data
-                        },
-                    });
-                });
+            const response = await fetch(csvpath);
+            const csvText = await response.text();
+
+            Papa.parse<ChartData>(csvText, {
+                header: true,
+                dynamicTyping: true,
+                complete: (result) => {
+                    setData(result.data);
+                },
+            });
         };
 
-        loadCSV();  // Call the function inside useEffect
-    }, [csvpath]);  // csvpath as a dependency
+        loadCSV();
+    }, [csvpath]);
 
     return (
         <div className={styles.chartContainer}>
@@ -100,7 +106,7 @@ function Bars({ xaxis, bar1, bar2, csvpath }: BarsProps) {
                         tick={{ fill: '#fff', fontSize: 14, fontWeight: 'bold' }}
                     />
                     <Tooltip
-                        cursor={<CustomTooltipCursor />}
+                        cursor={<CustomTooltipCursor x={0} y={0} width={0} height={0} />} // Provide default values
                         content={<CustomTooltip />}
                     />
                     <Bar dataKey={bar1} fill="#76EEC6" activeBar={<Rectangle fill="#98FF98" />} />
@@ -109,8 +115,6 @@ function Bars({ xaxis, bar1, bar2, csvpath }: BarsProps) {
             </ResponsiveContainer>
         </div>
     );
-
 };
-
 
 export default Bars;
