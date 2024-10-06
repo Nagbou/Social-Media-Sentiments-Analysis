@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import Papa from 'papaparse';
-import styles from "./Pie.module.css"
+import styles from "./Pie.module.css";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { TooltipProps } from 'recharts';
 

@@ -19,6 +19,7 @@ function About() {
                         className={styles.img}
                         width={200}
                         height={100}
+                        priority // Adding priority for better image loading in above-the-fold content
                     />
                 </div>
             </div>
@@ -31,6 +32,7 @@ function About() {
                         className={styles.img}
                         width={200}
                         height={50}
+                        priority // Adding priority for better image loading in above-the-fold content
                     />
                 </div>
                 <div className="col col-8">
@@ -53,6 +55,7 @@ function About() {
                         className={styles.img}
                         width={200}
                         height={50}
+                        priority // Adding priority for better image loading in above-the-fold content
                     />
                 </div>
             </div>

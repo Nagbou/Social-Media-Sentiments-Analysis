@@ -14,7 +14,7 @@ function GoToCharts(prop: GoToChartsProps) {
         <div className={styles.container}>
             <h1 className={styles.header}>{prop.header}</h1>
             <p>{prop.text}</p>
-            <Link href={prop.link}> {/* Use curly braces here for dynamic link */}
+            <Link href={prop.link}>
                 <button className={styles.button}>
                     <FontAwesomeIcon icon={faArrowRight} />
                 </button>

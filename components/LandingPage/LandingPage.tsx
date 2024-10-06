@@ -18,7 +18,6 @@ function LandingPage() {
             className={styles.coverImg}
             width={200}
             height={50}
-            layout="responsive" // Use responsive layout if you want the image to scale
           />
         </div>
       </div>

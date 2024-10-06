@@ -18,13 +18,13 @@ interface ChartData {
 
 // Define prop types for CustomTooltipCursor
 interface CustomTooltipCursorProps {
-    x: number;
-    y: number;
-    width: number;
-    height: number;
+    x?: number;
+    y?: number;
+    width?: number;
+    height?: number;
 }
 
-const CustomTooltipCursor = ({ x, y, width, height }: CustomTooltipCursorProps) => {
+const CustomTooltipCursor: React.FC<CustomTooltipCursorProps> = ({ x = 0, y = 0, width = 0, height = 0 }) => {
     return (
         <Rectangle
             fill="#004f99"
@@ -36,7 +36,7 @@ const CustomTooltipCursor = ({ x, y, width, height }: CustomTooltipCursorProps) 
     );
 };
 
-const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>) => {
+const CustomTooltip: React.FC<TooltipProps<number, string>> = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
         return (
             <div
@@ -106,11 +106,11 @@ const Bars: React.FC<BarsProps> = ({ xaxis, bar1, bar2, csvpath }) => {
                         tick={{ fill: '#fff', fontSize: 14, fontWeight: 'bold' }}
                     />
                     <Tooltip
-                        cursor={<CustomTooltipCursor x={0} y={0} width={0} height={0} />} // Provide default values
+                        cursor={<CustomTooltipCursor />} // Simplified the cursor usage
                         content={<CustomTooltip />}
                     />
-                    <Bar dataKey={bar1} fill="#76EEC6" activeBar={<Rectangle fill="#98FF98" />} />
-                    <Bar dataKey={bar2} fill="#E6E6FA" activeBar={<Rectangle fill="#C8A2E8" />} />
+                    <Bar dataKey={bar1} fill="#76EEC6" />
+                    <Bar dataKey={bar2} fill="#E6E6FA" />
                 </BarChart>
             </ResponsiveContainer>
         </div>
